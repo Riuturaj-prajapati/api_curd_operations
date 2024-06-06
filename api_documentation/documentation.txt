@@ -1,0 +1,160 @@
+Certainly! Below is the documentation formatted more like a document:
+
+---
+
+# API Documentation
+
+## Introduction
+
+Welcome to the API documentation for the [Your Project Name] project. This document provides detailed information about the available endpoints and their usage.
+
+## Authentication
+
+### Login
+
+Authenticate the user and obtain a JWT token.
+
+- **URL:** `/api/login`
+- **Method:** `POST`
+- **Request Body:**
+  ```json
+  {
+      "email": "admin@codesfortomorrow.com",
+      "password": "Admin123!@#"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  }
+  ```
+
+## Categories
+
+### Create a Category
+
+Create a new category.
+
+- **URL:** `/api/category`
+- **Method:** `POST`
+- **Request Body:**
+  ```json
+  {
+      "name": "Category Name"
+  }
+  ```
+- **Headers:** `Authorization: Bearer [JWT Token]`
+- **Response:**
+  ```json
+  {
+      "id": 1,
+      "name": "Category Name"
+  }
+  ```
+
+### Get All Categories
+
+Retrieve a list of all categories.
+
+- **URL:** `/api/categories`
+- **Method:** `GET`
+- **Headers:** `Authorization: Bearer [JWT Token]`
+- **Response:**
+  ```json
+  [
+      {
+          "id": 1,
+          "name": "Category 1"
+      },
+      {
+          "id": 2,
+          "name": "Category 2"
+      },
+      ...
+  ]
+  ```
+
+### Update a Category
+
+Update an existing category.
+
+- **URL:** `/api/category/:categoryId`
+- **Method:** `PUT`
+- **Parameters:** `categoryId` (ID of the category to update)
+- **Request Body:**
+  ```json
+  {
+      "name": "New Category Name"
+  }
+  ```
+- **Headers:** `Authorization: Bearer [JWT Token]`
+- **Response:**
+  ```json
+  {
+      "id": 1,
+      "name": "New Category Name"
+  }
+  ```
+
+### Remove an Empty Category
+
+Remove an empty category.
+
+- **URL:** `/api/category/:categoryId`
+- **Method:** `DELETE`
+- **Parameters:** `categoryId` (ID of the category to remove)
+- **Headers:** `Authorization: Bearer [JWT Token]`
+- **Response:**
+  ```json
+  {
+      "message": "Category removed successfully"
+  }
+  ```
+
+## Services
+
+### Create a Service
+
+Create a new service within a category.
+
+- **URL:** `/api/category/:categoryId/service`
+- **Method:** `POST`
+- **Parameters:** `categoryId` (ID of the category to which the service belongs)
+- **Request Body:**
+  ```json
+  {
+      "name": "Service Name",
+      "type": "Normal",
+      "priceOptions": [
+          {
+              "duration": "1 hour",
+              "price": 10,
+              "type": "Hourly"
+          }
+      ]
+  }
+  ```
+- **Headers:** `Authorization: Bearer [JWT Token]`
+- **Response:**
+  ```json
+  {
+      "id": 1,
+      "name": "Service Name",
+      "type": "Normal",
+      "priceOptions": [
+          {
+              "id": 1,
+              "duration": "1 hour",
+              "price": 10,
+              "type": "Hourly"
+          }
+      ]
+  }
+  ```
+
+(Continue with other endpoints as needed...)
+
+---
+
+This format provides a structured and organized overview of the API endpoints, making it easier for developers to understand and utilize the API functionalities. Adjust the document as needed to match your project's specific requirements and endpoints.
